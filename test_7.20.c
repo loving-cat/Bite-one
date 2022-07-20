@@ -416,24 +416,47 @@
 //	return 0;
 //}
 
-int main()
-{
-	int max = 0;
-	int arr[10] = { 0 };
-	for ( int i = 0; i < 10; i++)
-	{
-		scanf("%d", &arr[i]);
-	}
-	max = arr[0];
-	for (int i = 0; i < 10; i++)
-	{
-		if(arr[i]>max)
-		{
-			max = arr[i];
-			i++;
-		}
-	}
-	printf("max = %d", max);
-	
-	return 0;
-}
+//int main()
+//{
+//	int max = 0;
+//	int arr[10] = { 0 };
+//	for ( int i = 0; i < 10; i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//	max = arr[0];
+//	for (int i = 0; i < 10; i++)
+//	{
+//		if(arr[i]>max)
+//		{
+//			max = arr[i];
+//			i++;
+//		}
+//	}
+//	printf("max = %d", max);
+//	
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i, j, k, l = 0;
+//	for (i = 1; i < 5; i++)
+//	{
+//		for (j = 1; j < 5; j++) 
+//		{
+//			for ( k = 1; k < 5; k++)
+//			{
+//				for (l = 1; l < 5; l++) 
+//				{
+//					if (i!=j && i!=k && i!=l && j!=k && j!=l && k!=l)
+//					{
+//						printf("%d%d%d%d\n", i, j, k, l);
+//
+//					}
+//				}
+//			}
+//		}
+//	}
+//	return 0;
+//}
