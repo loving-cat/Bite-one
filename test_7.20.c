@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+ï»¿#define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 //int main()
 //{
@@ -6,50 +6,50 @@
 //	scanf("%d", &age);
 //	if (age<18) 
 //	{
-//		printf("Î´³ÉÄê\n");
-//		printf("²»ÄÜºÈ¾Æ\n");
+//		printf("æœªæˆå¹´\n");
+//		printf("ä¸èƒ½å–é…’\n");
 //	}
 //	else
 //	{
-//		printf("³ÉÄê\n");
-//		printf("ÊÊÁ¿Òû¾Æ\n");
+//		printf("æˆå¹´\n");
+//		printf("é€‚é‡é¥®é…’\n");
 //	}*/
-//	//<18 ÇàÉÙÄê
-//	//18 - 26 ÇàÄê
-//	//31 - 45 ÖĞÄê
-//	//46 - 60 ×³Äê
-//	//60 - 90 ÀÏÄê
-//	//90 -    ÀÏÊÙĞÇ
+//	//<18 é’å°‘å¹´
+//	//18 - 26 é’å¹´
+//	//31 - 45 ä¸­å¹´
+//	//46 - 60 å£®å¹´
+//	//60 - 90 è€å¹´
+//	//90 -    è€å¯¿æ˜Ÿ
 //	int age = 0;
 //	scanf("%d", &age);
 //	if (age < 18)
 //	{
-//		printf("ÉÙÄê\n");
+//		printf("å°‘å¹´\n");
 //	}
 //	else if(age>=18 && age <30)
 //	{
-//		printf("ÇàÄê\n");
+//		printf("é’å¹´\n");
 //	}
 //	else if (age >= 30 && age < 45)
 //	{
-//		printf("ÖĞÄê\n");
+//		printf("ä¸­å¹´\n");
 //	}
 //	else if (age >= 45 && age < 60)
 //	{
-//		printf("×³Äê\n");
+//		printf("å£®å¹´\n");
 //	}
 //	else if (age >= 60 && age < 90)
 //	{
-//		printf("ÀÏÄê\n");
+//		printf("è€å¹´\n");
 //	}
 //	else
 //	{
-//		printf("ÀÏÊÙĞÇ\n");
+//		printf("è€å¯¿æ˜Ÿ\n");
 //	}
 //
 //	return 0;
 //}
-//CÓïÑÔ 0±íÊ¾¼Ù£¬·Ç0±íÊ¾Õæ¡£
+//Cè¯­è¨€ 0è¡¨ç¤ºå‡ï¼Œé0è¡¨ç¤ºçœŸã€‚
 
 //int main()
 //{
@@ -93,13 +93,13 @@
 //{
 //	int num = 0;
 //	scanf("%d", &num);
-//	if (num % 2 == 1) //ÅĞ¶ÏÊÇ·ñÎªÆæÊı
+//	if (num % 2 == 1) //åˆ¤æ–­æ˜¯å¦ä¸ºå¥‡æ•°
 //	{
-//		printf("ÆæÊı\n");
+//		printf("å¥‡æ•°\n");
 //	}
 //	else
 //	{
-//		printf("Å¼Êı\n");
+//		printf("å¶æ•°\n");
 //	}
 //	return 0;
 //}
@@ -111,7 +111,7 @@
 //	{
 //		if (num % 2 == 1)
 //		{
-//			printf("ÆæÊı:%d\n", num);
+//			printf("å¥‡æ•°:%d\n", num);
 //		}
 //		num++;
 //	}
@@ -125,35 +125,35 @@
 //	switch (day)
 //	{
 //	case 1:
-//		printf("ĞÇÆÚÒ»");
+//		printf("æ˜ŸæœŸä¸€");
 //		break;
 //	case 2:
-//		printf("ĞÇÆÚ¶ş");
+//		printf("æ˜ŸæœŸäºŒ");
 //		break;
 //	case 3:
-//		printf("ĞÇÆÚÈı");
+//		printf("æ˜ŸæœŸä¸‰");
 //		break;
 //	case 4:
-//		printf("ĞÇÆÚËÄ");
+//		printf("æ˜ŸæœŸå››");
 //		break;
 //	case 5:
-//		printf("ĞÇÆÚÎå");
+//		printf("æ˜ŸæœŸäº”");
 //		break;
 //	case 6:
-//		printf("ĞÇÆÚÁù");
+//		printf("æ˜ŸæœŸå…­");
 //		break;
 //	case 7:
-//		printf("ĞÇÆÚÌì");
+//		printf("æ˜ŸæœŸå¤©");
 //		break;
 //	default:
-//		printf("ÊäÈëµÄ²»ÊÇµØÇòÊ±¼ä");
+//		printf("è¾“å…¥çš„ä¸æ˜¯åœ°çƒæ—¶é—´");
 //		break;
 //	}
 //	return 0;
 //}
 
-//1-5 ¹¤×÷ÈÕ
-//6-7 ĞİÏ¢ÈÕ
+//1-5 å·¥ä½œæ—¥
+//6-7 ä¼‘æ¯æ—¥
 //int main()
 //{
 //	int day = 0;
@@ -165,14 +165,14 @@
 //	case 3:
 //	case 4:
 //	case 5:
-//		printf("¹¤×÷ÈÕ");
+//		printf("å·¥ä½œæ—¥");
 //		break;
 //	case 6:
 //	case 7:
-//		printf("ĞİÏ¢ÈÕ");
+//		printf("ä¼‘æ¯æ—¥");
 //		break;
 //	default:
-//		printf("ÊäÈëµÄ²»ÊÇµØÇòÊ±¼ä");
+//		printf("è¾“å…¥çš„ä¸æ˜¯åœ°çƒæ—¶é—´");
 //		break;
 //	}
 //	return 0;
@@ -207,7 +207,7 @@
 //}
 
 
-//EOF end of file ÎÄ¼ş½áÊø±êÖ¾
+//EOF end of file æ–‡ä»¶ç»“æŸæ ‡å¿—
 //int main()
 //{
 //	int ch = 0;
@@ -221,23 +221,23 @@
 //int main()
 //{
 //	char password[20] = { 0 };
-//	printf("ÇëÊäÈëÃÜÂë£º>");
+//	printf("è¯·è¾“å…¥å¯†ç ï¼š>");
 //	scanf("%s", password);
-//	//ÇåÀí\n
+//	//æ¸…ç†\n
 //	int tmp = 0;
-//	while((tmp=getchar())!='\n')//²»Ïë´æ¿ÉÒÔÈ¥µôtmp
+//	while((tmp=getchar())!='\n')//ä¸æƒ³å­˜å¯ä»¥å»æ‰tmp
 //	{
 //		;	
 //	}
-//	printf("ÇëÈ·ÈÏÃÜÂë(Y/N):");
+//	printf("è¯·ç¡®è®¤å¯†ç (Y/N):");
 //	int ch = getchar();
 //	if (ch == 'Y')
 //	{
-//		printf("È·ÈÏ³É¹¦\n");
+//		printf("ç¡®è®¤æˆåŠŸ\n");
 //	}
 //	else
 //	{
-//		printf("È·ÈÏÊ§°Ü\n");
+//		printf("ç¡®è®¤å¤±è´¥\n");
 //	}
 //	return 0;
 //}
@@ -277,26 +277,163 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	//forçš„åˆå§‹åŒ–ï¼Œåˆ¤æ–­ï¼Œè°ƒæ•´ä¸‰ä¸ªéƒ¨åˆ†å¯ä»¥çœç•¥
+//	//ä½†æ˜¯çœç•¥æ‰åˆ¤æ–­éƒ¨åˆ†ï¼Œå°±æ„å‘³ç€åˆ¤æ–­æ’ä¸ºçœŸ
+//	//æ­»å¾ªç¯
+//	/*for (;;)
+//	{
+//		printf("hehe\n");
+//	}*/
+//	int i = 0;
+//	int j = 0;
+//	int count = 0;
+//	for ( i = 0; i < 10; i++)
+//	{
+//		for ( j = 0; j < 10; j++)
+//		{
+//			printf("hehe");
+//			count++;
+//			printf("%d", count);
+//		}
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	for (int i = 1; i <= 100; i++)
+//	{
+//		if (i % 3 == 0)
+//		{
+//			printf("1-100ä¸­3çš„å€æ•°=%d\n", i);
+//		}
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a, b, c = 0;
+//	int tmp = 0;
+//	scanf("%d %d %d", &a, &b, &c);
+//	if (a<b)
+//	{
+//		tmp = a;
+//		a = b;
+//		b = tmp;
+//	}
+//	if (a < c) 
+//	{
+//		tmp = a;
+//		a = c;
+//		c = tmp;
+//	}
+//	if (b < c)
+//	{
+//		tmp = b;
+//		b = c;
+//		c = tmp;
+//	}
+//	printf("%d %d %d", a, b, c);
+//	return 0;
+//}
+
+//æ±‚ç´ æ•°
+//int main()
+//{
+//	int i,j=0;
+//	for ( i = 100; i <= 200; i++)
+//	{
+//		for ( j = 2; j < i ; j++)
+//		{
+//			if (i % j == 0)
+//			{
+//				break;
+//			}
+//		}
+//		if (j >= i)
+//		{
+//			printf("ç´ æ•°=%d\n", i);
+//		}
+//	}
+//	return 0;
+//}
+
+//ï¼ˆ1ï¼‰åå¹´ä¸€é—°ç™¾å¹´ä¸é—°ï¼šå³å¦‚æœyearèƒ½å¤Ÿè¢«4æ•´é™¤ï¼Œä½†æ˜¯ä¸èƒ½è¢«100æ•´é™¤ï¼Œåˆ™yearæ˜¯é—°å¹´ã€‚
+//ï¼ˆ2ï¼‰æ¯å››ç™¾å¹´å†ä¸€é—°ï¼šå¦‚æœyearèƒ½å¤Ÿè¢«400æ•´é™¤ï¼Œåˆ™yearæ˜¯é—°å¹´ã€‚
+//int main()
+//{
+//	int year = 0;
+//	for (int year = 1000; year <=2000; year++)
+//	{
+//		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+//		{
+//			printf("é—°å¹´=%d\n", year);
+//		}
+//	}
+//	return 0;
+//}
+// 
+//æ±‚æœ€å¤§å…¬çº¦æ•°
+//int Fact(int x, int y)
+//{
+//	int z = 1;
+//	while (z)
+//	{
+//		z = x % y;
+//		x = y;
+//		y = z;
+//	}
+//	return x;
+//}
+//int main()
+//{
+//	int a, b = 0;
+//	int ret = 0;
+//	scanf("%d %d", &a, &b);
+//	ret = Fact(a,b);
+//	printf("%d", ret);
+//	return 0;
+//}
+
+//99ä¹˜æ³•è¡¨
+//int main()
+//{
+//	int i, j = 0;
+//	for ( i = 1; i < 10; i++)
+//	{
+//		for ( j = 1; j <=i; j++)
+//		{
+//			
+//			printf("%d*%d=%2d\t", j, i, (i * j));
+//			
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
 int main()
 {
-	//forµÄ³õÊ¼»¯£¬ÅĞ¶Ï£¬µ÷ÕûÈı¸ö²¿·Ö¿ÉÒÔÊ¡ÂÔ
-	//µ«ÊÇÊ¡ÂÔµôÅĞ¶Ï²¿·Ö£¬¾ÍÒâÎ¶×ÅÅĞ¶ÏºãÎªÕæ
-	//ËÀÑ­»·
-	/*for (;;)
+	int max = 0;
+	int arr[10] = { 0 };
+	for ( int i = 0; i < 10; i++)
 	{
-		printf("hehe\n");
-	}*/
-	int i = 0;
-	int j = 0;
-	int count = 0;
-	for ( i = 0; i < 10; i++)
+		scanf("%d", &arr[i]);
+	}
+	max = arr[0];
+	for (int i = 0; i < 10; i++)
 	{
-		for ( j = 0; j < 10; j++)
+		if(arr[i]>max)
 		{
-			printf("hehe");
-			count++;
-			printf("%d", count);
+			max = arr[i];
+			i++;
 		}
 	}
+	printf("max = %d", max);
+	
 	return 0;
 }
