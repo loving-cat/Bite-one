@@ -213,29 +213,98 @@
 //	run_run(i);
 //	return 0;
 //}
-void su_shu(int i, int j)
+//void su_shu(int i, int j)
+//{
+//	for (i = 100; i < 200; i++)
+//	{
+//		int su = 1;
+//		for (j = 2; j < i; j++)
+//		{
+//			if (i % j == 0)
+//			{
+//				su = 0;
+//				break;
+//			}
+//		}
+//		if (su == 1)
+//		{
+//			printf("素数：%d\n", i);
+//		}
+//	}
+//}
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	su_shu(i,j);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int n = 10;
+//	int* p;
+//	p = &n;
+//	printf("%p\n", &n);
+//	printf("%p\n", p);//00000001000FF734
+//	printf("%p\b", &p);
+//	return 0;
+//}
+#include<stdlib.h>
+#include<time.h>
+void menu()
 {
-	for (i = 100; i < 200; i++)
+	printf("**********************************\n");
+	printf("*****1.play            0.exit*****\n");
+	printf("**********************************\n");
+}
+
+void game()
+{
+	int ret = rand() % 100 + 1;
+	int i = 0;
+	while (1)
 	{
-		int su = 1;
-		for (j = 2; j < i; j++)
+		printf("请输入猜测的数字\n");
+		scanf("%d", &i);
+		if (i<ret)
 		{
-			if (i % j == 0)
-			{
-				su = 0;
-				break;
-			}
+			printf("小了\n");
 		}
-		if (su == 1)
+		else if(i>ret)
 		{
-			printf("素数：%d\n", i);
+			printf("大了\n");
+		}
+		else
+		{
+			printf("猜对了！\n");
+			break;
 		}
 	}
 }
+
 int main()
 {
-	int i = 0;
-	int j = 0;
-	su_shu(i,j);
+	int n = 0;
+	srand((unsigned int)time(NULL));
+	do
+	{
+		menu();
+		printf("请选择：>\n");
+		scanf("%d", &n);
+		switch (n)
+		{
+		case 1:
+			printf("开始游戏\n");
+			game();
+			break;
+		case 0:
+			printf("退出游戏\n");
+			break;
+		default:
+			printf("选择错误\n");
+			break;
+		}
+	} while (n);
 	return 0;
 }
