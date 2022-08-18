@@ -88,19 +88,58 @@
 //	return 0;
 //}
 
-int f(int n)
-{
-	static int i = 1;
-	if (n >= 5)
-		return n;
-	n = n + i;
-	i++;
-	return f(n);
-}
-int main()
-{
-	int n = 0;
-	int ret = f(n);
-	printf("%d", ret);
-	return 0;
-}
+//int f(int n)
+//{
+//	static int i = 1;
+//	if (n >= 5)
+//		return n;
+//	n = n + i;
+//	i++;
+//	return f(n);
+//}
+//int main()
+//{
+//	int n = 0;
+//	int ret = f(n);
+//	printf("%d", ret);
+//	return 0;
+//}
+
+//void prt()
+//{
+//	for (int i = 5; i < 8; i++)
+//		printf("%c", '*');
+//	printf("\t");
+//}
+//int main()
+//{
+//	int i = 0;
+//	for (i = 5; i <= 8; i++)
+//		prt();
+//	return 0;
+//}\
+
+
+//int main()
+//{
+//	int a = 3;
+//	printf("%d\n", (a += a -= a * a));
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a[] = { 4,0,2,3,1 }, i, j, t;
+//	for ( i = 1; i < 5; i++)
+//	{
+//		t = a[i];
+//		j = i - 1;
+//		while (j>=0&&t<a[j])
+//		{
+//			a[j + 1] = a[j];
+//			--j;
+//		}
+//		a[j + 1] = t;
+//	}
+//	return 0;
+//}
