@@ -143,3 +143,30 @@
 //	}
 //	return 0;
 //}
+
+//int main()
+//{
+//	char ch[80] = "123abcdEFG*&";
+//	int j;
+//	puts(ch);
+//	for ( j = 0; j != '\0'; j++)
+//		if (ch[j] >= 'A' && ch[j] <= 'Z')
+//			ch[j] = ch[j] + 'e' - 'E';
+//	puts(ch);
+//	
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	char ch;
+//	while ((ch=getchar())!='\n')
+//	{
+//		if (ch % 2 != 0 && (ch >= 'a' && ch <= 'z'))
+//			ch = ch - 'a' + 'A';
+//		putchar(ch);
+//	}
+//	printf("\n");
+//	return 0;
+//}
