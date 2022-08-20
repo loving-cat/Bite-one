@@ -170,3 +170,61 @@
 //	printf("\n");
 //	return 0;
 //}
+
+
+//int dominantIndex(int* nums, int numsSize)
+//{
+//    if (numsSize == 1)
+//        return 0;      // 如果只有一a个数字，题目中满足条件，所以返回下标0
+//    int max = 0;       // 已知所有int都大于等于0
+//    int second = 0;
+//    int index = 0;     // 用index储存最大值的下标
+//    for (int i = 0; i < numsSize; i++)
+//    {
+//        if (nums[i] > max)
+//        {
+//            second = max;  // 原来最大值更新为次大值
+//            max = nums[i]; // 更新最大值
+//            index = i;     // 更新最大值下标
+//        }
+//        else if (nums[i] > second) // 但小于max
+//        {
+//            second = nums[i]; // 更新次大值
+//        }
+//    }
+//    return (max >= (2 * second)) ? index : -1;
+//}
+
+
+int cmp(const void* a, const void* b) {                  //按升序排序
+    return (*(int*)a - *(int*)b);
+}
+
+int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize) {
+    int* res = (int*)malloc(sizeof(int) * nums1Size);   //结果数组
+    *returnSize = 0;
+
+    qsort(nums1, nums1Size, sizeof(nums1[0]), cmp);     //num1排序
+    qsort(nums2, nums2Size, sizeof(nums2[0]), cmp);     //num2排序
+
+    for (int i = 0, j = 0; i < nums1Size; ++i) {              //遍历num1
+        if (i != 0 && nums1[i] == nums1[i - 1])            //跳过重复值
+            continue;
+        int low = 0, high = nums2Size - 1, mid;
+        while (low <= high) {                             //二分法查找num2中是否有同样的值
+            mid = (low + high) / 2;
+            if (nums2[mid] == nums1[i]) {                 //有同样的值则存入结果数组
+                res[j++] = nums1[i];
+                (*returnSize)++;
+                break;
+            }
+            else if (nums2[mid] < nums1[i])
+                low = mid + 1;
+            else
+                high = mid - 1;
+        }
+    }
+
+    return res;
+}
+
