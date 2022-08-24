@@ -229,21 +229,49 @@
 //}
 
 
+//int main()
+//{
+//	int x = 0;
+//	int y = 0;
+//	for (int i = 0; i < 100; i++)
+//	{
+//		for (int j = 0; j < 100; j++)
+//		{
+//			if (1003 * i + 503 * j == 27805)
+//			{
+//				printf("x=%d,y=%d", i, j);
+//			}
+//		}
+//		
+//	}
+//	return 0;
+//}
+
+
+//int func(int x)
+//{
+//	int count = 0;
+//	while (x)
+//	{
+//		count++;
+//		x = x >> 1;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	int n = -1;
+//	int ret = func(n);
+//	printf("%d", ret);
+//	return 0;
+//}
+
+
 int main()
 {
-	int x = 0;
-	int y = 0;
-	for (int i = 0; i < 100; i++)
-	{
-		for (int j = 0; j < 100; j++)
-		{
-			if (1003 * i + 503 * j == 27805)
-			{
-				printf("x=%d,y=%d", i, j);
-			}
-		}
-		
-	}
+	int a = 1, b = 2, m = 0,n = 0, k;
+	k = (n = b < a) && (m = a);
+	printf("%d,%d\n", k, m);
 	return 0;
 }
 
