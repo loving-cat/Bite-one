@@ -267,11 +267,74 @@
 //}
 
 
-int main()
-{
-	int a = 1, b = 2, m = 0,n = 0, k;
-	k = (n = b < a) && (m = a);
-	printf("%d,%d\n", k, m);
-	return 0;
+//int main()
+//{
+//	int a = 1, b = 2, m = 0,n = 0, k;
+//	k = (n = b < a) && (m = a);
+//	printf("%d,%d\n", k, m);
+//	return 0;
+//}
+
+//void func()
+//{
+//	int k = 1 ^ (1 << 31 >> 31);
+//	printf("%d\n", k);
+//}
+//int fun(unsigned int x)
+//{
+//	int n = 0;
+//	while (x + 1)
+//	{
+//		n++;
+//		x = x | (x + 1);
+//	}
+//	return n;
+//}
+//int main()
+//{
+//	//func();
+//	/*unsigned short x = 65530;
+//	unsigned int y = x;
+//	printf("%p", y);*/
+//	int n = 2014;
+//	int ret = fun(n);
+//	printf("%d", ret);
+//	return 0;
+//}
+
+//void GetMemory(char** p, int num)
+//{
+//	if (NULL == p && num <= 0)
+//		return;
+//	*p = (char*)malloc(num);
+//	return;
+//}
+//int main()
+//{
+//	char* str = NULL;
+//	GetMemory(&str, 80);
+//	if (NULL != str)
+//	{
+//		strcpy(&str, "hello");
+//		printf(str);
+//	}
+//	return 0;
+//}
+
+int* findDisappearedNumbers(int* nums, int numsSize, int* returnSize) {
+    int* ans = malloc(sizeof(int) * (numsSize + 1));//申请空间，作为简易哈希表
+    for (int i = 0; i < numsSize; i++)
+    {
+        ans[nums[i]] = 1;//记录出现元素
+    }
+    *returnSize = 0;
+    for (int i = 1; i <= numsSize; i++)
+    {
+        if (ans[i] != 1)//对为出现的元素保存输出
+        {
+            ans[(*returnSize)++] = i;
+        }
+    }
+    return ans;
 }
 
