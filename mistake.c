@@ -321,20 +321,38 @@
 //	return 0;
 //}
 
-int* findDisappearedNumbers(int* nums, int numsSize, int* returnSize) {
-    int* ans = malloc(sizeof(int) * (numsSize + 1));//申请空间，作为简易哈希表
+//int* findDisappearedNumbers(int* nums, int numsSize, int* returnSize) {
+//    int* ans = malloc(sizeof(int) * (numsSize + 1));//申请空间，作为简易哈希表
+//    for (int i = 0; i < numsSize; i++)
+//    {
+//        ans[nums[i]] = 1;//记录出现元素
+//    }
+//    *returnSize = 0;
+//    for (int i = 1; i <= numsSize; i++)
+//    {
+//        if (ans[i] != 1)//对为出现的元素保存输出
+//        {
+//            ans[(*returnSize)++] = i;
+//        }
+//    }
+//    return ans;
+//}
+
+int findMaxConsecutiveOnes(int* nums, int numsSize) {
+    int ret = 0;    //定义一个返回值
+    int ret_temp = 0;//定义一个返回的暂存值
     for (int i = 0; i < numsSize; i++)
     {
-        ans[nums[i]] = 1;//记录出现元素
-    }
-    *returnSize = 0;
-    for (int i = 1; i <= numsSize; i++)
-    {
-        if (ans[i] != 1)//对为出现的元素保存输出
-        {
-            ans[(*returnSize)++] = i;
+        if (nums[i] == 1) {      //如果值为1
+            ret_temp++;         //暂存值的个数加一
+            if (ret_temp > ret) {
+                ret = ret_temp; //刷新返回个数
+            }
+        }
+        else {
+            ret_temp = 0;       //清零
         }
     }
-    return ans;
+    return ret;
 }
 
