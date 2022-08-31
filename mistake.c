@@ -355,4 +355,4 @@ int findMaxConsecutiveOnes(int* nums, int numsSize) {
     }
     return ret;
 }
-
+#define r -1
