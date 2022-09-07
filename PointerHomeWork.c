@@ -69,10 +69,47 @@
 
 //使用函数指针实现回调函数
 
+//int main()
+//{
+//	char arr[] = "abcdef";
+//
+//	printf("%d\n", sizeof(arr));                 
+//	return 0;
+//}
+
+
+//struct Test
+//{
+//	int Num;
+//	char* pcName;
+//	short sDate;
+//	char cha[2];
+//	short sBa[4];
+//}*p;//p是一个结构体指针变量
+//
+//int main()
+//{
+//	p = (struct Test*)0x100000;
+//	printf("%p\n", p + 0x1);
+//	printf("%p\n", (unsigned long)p + 0x1);
+//	printf("%p\n", (unsigned int*)p + 0x1);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a[5][5];
+//	int(*p)[4];
+//	p = a;
+//	printf("%p,%d\n", &p[4][2] - &a[4][2], &p[4][2] - &a[4][2]);
+//	return 0;
+//}
+
 int main()
 {
-	char arr[] = "abcdef";
-
-	printf("%d\n", sizeof(arr));
+	char* a[] = { "ch","at","al" };
+	char** pa = a;
+	pa++;
+	printf("%s\n", *pa);
 	return 0;
 }
