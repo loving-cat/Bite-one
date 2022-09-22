@@ -152,15 +152,16 @@
 //{
 //	assert(dest);
 //	assert(src);
+//	char* ret = dest;
 //	while (*dest++ = *src++)
 //	{
 //		;
 //	}
-//	return dest;
+//	return ret;
 //}
 //int main()
 //{
-//	char arr1[20] = "abc";
+//	char arr1[20] = "xxxxxxxxx";
 //	char arr2[] = "hello bit";
 //	printf("%s\n", my_strcpy(arr1, arr2));
 //	return 0;
@@ -178,7 +179,7 @@
 //#include<stdlib.h>
 //char* my_strcat(char* dest, const char* src)
 //{
-//	//1,找目标空间中的\0
+////	1,找目标空间中的\0
 //	char* cur = dest;
 //	while (*cur!='\0')//可简化为*cur
 //	{
@@ -189,7 +190,7 @@
 //		;
 //	}
 //	return dest;
-//	//2，拷贝源头数据到\0之后的空间
+////	2，拷贝源头数据到\0之后的空间
 //}
 //int main()
 //{
@@ -201,7 +202,7 @@
 //}
 
 //strcmp 比较的是对应位置上字符的大小，而非长度
-#include<string.h>
+//#include<string.h>
 //int main()
 //{
 //	/*char arr1[] = "abcdef";
@@ -210,13 +211,13 @@
 //	/*char arr1[] = "abcdef";
 //	char arr2[] = "abc";*/
 //
-//	char arr1[] = "abc";
-//	char arr2[] = "abc";
+//	char arr1[] = "abcdef";
+//	char arr2[] = "abcf";
 //
 //	/*char arr1[] = { 'a','b','c' };
 //	char arr2[] = { 'a','b','c' };*/ //err
 //
-//	int ret = strcmp(arr1, arr2);
+//	int ret = strncmp(arr1, arr2,4);
 //	if (ret < 0)
 //		printf("arr1<arr2\n");
 //	else if (ret > 0)
@@ -262,17 +263,8 @@
 //}
 //int main()
 //{
-//	/*char arr1[] = "abcdef";
-//	char arr2[] = "abq";*/
-//
-//	/*char arr1[] = "abcdef";
-//	char arr2[] = "abc";*/
-//
 //	char arr1[] = "abc";
 //	char arr2[] = "abc";
-//
-//	/*char arr1[] = { 'a','b','c' };
-//	char arr2[] = { 'a','b','c' };*/ //err
 //
 //	int ret = my_strcmp(arr1, arr2);
 //	if (ret < 0)
@@ -333,48 +325,100 @@
 
 //模拟strstr
 //暴力求解
-char* my_strstr(const char* str1, const char* str2)
-{
-	const char* s1 = str1;
-	const char* s2 = str2;
-	const char* p = str1;
-	if (*str2 == '\0')
-	{
-		return str1;
-	}
-	while (*p)
-	{
-		s1 = p;
-		s2 = str2;
-		while (*s1 != '\0' && *s2 != '\0' && (*s1 == *s2))
-		{
-			s1++;
-			s2++;
-		}
-		if (*s2 == '\0')
-		{
-			return p;//找到了
-		}
-		p++;
-	}
-	return NULL;//找不到子串
-}
+//char* my_strstr(const char* str1, const char* str2)
+//{
+//	const char* s1 = str1;
+//	const char* s2 = str2;
+//	const char* p = str1;
+//	if (*str2 == '\0')
+//	{
+//		return str1;
+//	}
+//	while (*p)
+//	{
+//		s1 = p;
+//		s2 = str2;
+//		while (*s1 != '\0' && *s2 != '\0' && (*s1 == *s2))
+//		{
+//			s1++;
+//			s2++;
+//		}
+//		if (*s2 == '\0')
+//		{
+//			return p;//找到了
+//		}
+//		p++;
+//	}
+//	return NULL;//找不到子串
+//}
+////
+////KMP 算法 - B站搜索：比特大博哥
+////难度也比较大一些
 //
-//KMP 算法 - B站搜索：比特大博哥
-//难度也比较大一些
+//int main()
+//{
+//	char arr1[] = "abcdefabcdef";
+//	char arr2[] = "cde";
+//	char* p = my_strstr(arr1, arr2);
+//	if (p == NULL)
+//	{
+//		printf("不存在\n");
+//	}
+//	else
+//	{
+//		printf("%s\n", p);
+//	}
+//	return 0;
+//}
+
+//#include<stdlib.h>
+//#include<string.h>
+//int main()
+//{
+//	char arr1[] = "xxxxxxxxxx";
+//	char arr2[] = { 'b','i','t','\0' };
+//	strncpy(arr1, arr2,2);
+//	printf("%s\n", arr1);//结果 char arr1 为 bit
+//	return 0;
+//}
+
+//模拟strncpy
+//char* my_strcpy(char* dest,char* src,int n )
+//{
+//	assert(dest);
+//	assert(src);
+//	char* ret = dest;
+//	while (n--)
+//	{
+//		*dest++ = *src++;
+//	}
+//	return ret;
+//}
 //
-int main()
+//int main()
+//{
+//	char arr1[10] = "abcdefghij";
+//	char arr2[] = "xxxxxxxxxx";
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret = my_strncmy(arr1, arr2, n);
+//}
+
+//模拟strncat
+char* My_strncat(char* dest, const char* src, size_t n)
 {
-	char arr1[] = "abcdefabcdef";
-	char arr2[] = "cde";
-	char* p = my_strstr(arr1, arr2);
-	if (p == NULL)
-	{
-		printf("不存在\n");
-	}
-	else
-	{
-		printf("%s\n", p);
-	}
-	return 0;
+    assert(dest);
+    assert(src);
+
+    char* ret = dest;
+    while (*dest)
+    {
+        dest++;
+    }
+    while (n--)
+    {
+        *dest++ = *src++;
+    }
+    *dest = '\0';
+    return ret;
 }
