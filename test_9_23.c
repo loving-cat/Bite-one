@@ -158,9 +158,31 @@
 //	return 0;
 //}
 
+//void GetMemory(char* p)
+//{
+//	p = (char*)malloc(100);
+//}
+//void Test(void)
+//{
+//	char* str = NULL;
+//	GetMemory(str);
+//	strcpy(str, "hello world");
+//	printf(str);
+//}
+char* GetMemory(void)
+{
+	char p[] = "hello world";
+	return p;
+}
+void Test(void)
+{
+	char* str = NULL;
+	str = GetMemory();
+	printf(str);
+}
 int main()
 {
-	
+	Test();
 	return 0;
 }
 
