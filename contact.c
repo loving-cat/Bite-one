@@ -2,19 +2,89 @@
 #include<stdio.h>
 #include"contact.h"
 
+//静态版本
+//void InitContact(struct Contact* pc)
+//{
+//	assert(pc);
+//	pc->sz = 0;
+//	memset(pc->data, 0, MAX * sizeof(struct PeoInfo));
+//}
+//动态增长版本
 void InitContact(struct Contact* pc)
 {
 	assert(pc);
+	pc->data = (struct PeoInfo*)malloc(DEFAULT_SZ * sizeof(struct PeoInfo));
+	if (pc->data == NULL)
+	{
+		perror("InitContact()");
+		return;
+	}
 	pc->sz = 0;
-	memset(pc->data, 0, MAX * sizeof(struct PeoInfo));
+	pc->capacity = DEFAULT_SZ;
+}
+//销毁通讯录
+void DestroyContact(struct Contact* pc)
+{
+	free(pc->data);
+	pc->data = NULL;
+	pc->capacity = 0;
+	pc->sz = 0;
 }
 
+
+//静态版本
+//void AddContact(struct Contact* pc)
+//{
+//	assert(pc);
+//	if (pc->sz == MAX)
+//	{
+//		printf("通讯录已满，无法添加数据\n");
+//		return;
+//	}
+//	//增加人的信息
+//	printf("请输入名字:>");
+//	scanf("%s", pc->data[pc->sz].name);
+//	printf("请输入性别:>");
+//	scanf("%s", pc->data[pc->sz].sex);
+//	printf("请输入年龄:>");
+//	scanf("%d", &pc->data[pc->sz].age);
+//	printf("请输入电话:>");
+//	scanf("%s", pc->data[pc->sz].tele);
+//	printf("请输入地址:>");
+//	scanf("%s", pc->data[pc->sz].addr);
+//
+//	pc->sz++;//
+//	printf("成功增加联系人\n");
+//}
+
+int check_capacity(struct Contact* pc)
+{
+	if (pc->sz == pc->capacity)
+	{
+		struct PeoInfo* ptr = (struct PeoInfo*)realloc(pc->data, (pc->capacity + 2) * sizeof(struct PeoInfo));
+			//(struct PeoInfo*)realloc(pc->data, (pc->capacity + INC_SZ) * sizeof(struct PeoInfo));
+		if (ptr != NULL)
+		{
+			pc->data = ptr;
+			pc->capacity += INC_SZ;
+			printf("增容成功\n");
+			return 1;
+		}
+		else
+		{
+			perror("AddContact()");
+			return 0;
+		}
+	}
+	else
+		return 1;
+}
+//动态增长的版本
 void AddContact(struct Contact* pc)
 {
 	assert(pc);
-	if (pc->sz == MAX)
+	if (0 == check_capacity(pc))
 	{
-		printf("通讯录已满，无法添加数据\n");
 		return;
 	}
 	//增加人的信息
