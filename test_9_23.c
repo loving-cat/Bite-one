@@ -169,21 +169,21 @@
 //	strcpy(str, "hello world");
 //	printf(str);
 //}
-char* GetMemory(void)
-{
-	char p[] = "hello world";
-	return p;
-}
-void Test(void)
-{
-	char* str = NULL;
-	str = GetMemory();
-	printf(str);
-}
-int main()
-{
-	Test();
-	return 0;
-}
+//char* GetMemory(void)
+//{
+//	char p[] = "hello world";
+//	return p;
+//}
+//void Test(void)
+//{
+//	char* str = NULL;
+//	str = GetMemory();
+//	printf(str);
+//}
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
 
 
