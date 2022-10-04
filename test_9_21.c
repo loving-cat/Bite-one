@@ -125,19 +125,19 @@
 //    return 0;
 //}
 
-void check_array(int arr[10])
-{
-	int i = 0;
-	for ( i = 0; i < 10; i++)
-	{
-		if(arr[i]!=)
-	}
-}
-#include<stdlib.h>
-int main()
-{
-	int arr[10] = { 1,1,2,2,3,4,4,5,6,6 };
-	check_array(arr);
-
-	return 0;
-}
+//void check_array(int arr[10])
+//{
+//	int i = 0;
+//	for ( i = 0; i < 10; i++)
+//	{
+//		if(arr[i]!=)
+//	}
+//}
+//#include<stdlib.h>
+//int main()
+//{
+//	int arr[10] = { 1,1,2,2,3,4,4,5,6,6 };
+//	check_array(arr);
+//
+//	return 0;
+//}
