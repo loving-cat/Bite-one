@@ -8,7 +8,7 @@ void menu()
 	printf("*** 1.add                      2.del***\n");
 	printf("***3.search                 4.modify***\n");
 	printf("***5.show                     5.sort***\n");
-	printf("***0.exit                           ***\n");
+	printf("***0.exit                            ***\n");
 	printf("***************************************\n");
 	printf("***************************************\n");
 
@@ -57,6 +57,8 @@ int main()
 			SortContact(&con);
 			break;
 		case EXIT:
+			SaveContact(&con);
+			printf("保存文件成功\n");
 			DestroyContact(&con);
 			printf("退出通讯录\n");
 			break;

@@ -10,8 +10,12 @@
 #define MAX_TELE 12
 #define MAX_ADDR 30
 
+//通讯录默认大小
 #define DEFAULT_SZ 3
+//空间满后每次增加2个信息
 #define INC_SZ 2;
+
+
 //表示一个人的信息
 struct PeoInfo
 {
@@ -61,4 +65,11 @@ void SortContact(struct Contact* pc);
 
 //销毁通讯录
 void DestroyContact(struct Contact* pc);
+
+//保存通讯录
+void SaveContact(struct Contact* pc);
+
+//加载文件的信息到通讯录
+void LoadContact(struct Contact* pc);
+
 

@@ -9,6 +9,35 @@
 //	pc->sz = 0;
 //	memset(pc->data, 0, MAX * sizeof(struct PeoInfo));
 //}
+
+//声明一下
+static int check_capacity(struct Contact* pc);
+
+void LoadContact(struct Contact* pc)
+{
+	//打开文件
+	FILE*pfR = fopen("data.txt", "rb");
+	if (pfR == NULL)
+	{
+		perror("LoadContact::fopen");
+		return;
+	}
+	//读文件
+	struct PeoInfo tmp = { 0 };
+
+	while (fread(&tmp, sizeof(struct PeoInfo), 1, pfR))
+	{
+		//考虑增加容量的问题
+		check_capacity(pc);
+
+		pc->data[pc->sz] = tmp;
+		pc->sz++;
+	}
+
+	//关闭文件
+	fclose(pfR);
+	pfR = NULL;
+}
 //动态增长版本
 void InitContact(struct Contact* pc)
 {
@@ -21,6 +50,8 @@ void InitContact(struct Contact* pc)
 	}
 	pc->sz = 0;
 	pc->capacity = DEFAULT_SZ;
+	//加载文件中的信息，到通讯录中
+	LoadContact(pc);
 }
 //销毁通讯录
 void DestroyContact(struct Contact* pc)
@@ -57,7 +88,7 @@ void DestroyContact(struct Contact* pc)
 //	printf("成功增加联系人\n");
 //}
 
-int check_capacity(struct Contact* pc)
+static int check_capacity(struct Contact* pc)
 {
 	if (pc->sz == pc->capacity)
 	{
@@ -207,4 +238,26 @@ int CmpByAge(const void* e1, const void* e2)
 void SortContact(struct Contact* pc)
 {
 	qsort(pc->data, pc->sz, sizeof(struct PeoInfo),CmpByAge);
+}
+
+void SaveContact(struct Contact* pc)
+{
+	//打开文件
+	FILE *pfW = fopen("data.txt", "wb");
+	if (pfW == NULL)
+	{
+		perror("SaveContact::fopen");
+		return 1;
+	}
+
+	//写文件
+	int i = 0;
+	for (i = 0; i < pc->sz; i++)
+	{
+		fwrite(pc->data + i, sizeof(struct PeoInfo), 1, pfW);
+	}
+	 
+	//关闭文件
+	fclose(pfW);
+	pfW = NULL;
 }
