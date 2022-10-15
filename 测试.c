@@ -278,33 +278,95 @@
 //    return 0;
 //}
 
-#include<stdio.h>
+//#include<stdio.h>
+//
+//int main()
+//{
+//    int n = 0;
+//    int i = 0;
+//    scanf("%d", &n);
+//    int arr[50] = { 0 };
+//    for (i = 0; i < n; i++)
+//    {
+//        scanf("%d", &arr[i]);
+//    }
+//    for (i = 0; i < n; i++)//ц©лк
+//    {
+//        for (int j = i; j < n; j++)//
+//        {
+//            if (arr[i] < arr[j])
+//            {
+//                int tmp = arr[i];
+//                arr[i] = arr[j];
+//                arr[j] = tmp;
+//            }
+//        }
+//    }
+//    for (i = 0; i < 5; i++)
+//    {
+//        printf("%d ", arr[i]);
+//    }
+//    return 0;
+//}
 
-int main()
-{
+//int main()
+//{
+//	unsigned char a = 200;
+//	//000000000000000011001000
+//	unsigned char b = 100;
+//	//000000000000000001100100
+//	unsigned char c = 0;
+//	c = a + b;
+//	//11001000
+//	//01100100
+//	// 
+//	//000000000000000011001000
+//	//000000000000000001100100
+//	//000000000000000100101100 - 300
+//	printf("%d %d", a + b, c);
+//	return 0;
+//}
+
+//int main()
+//{
+//	unsigned int a = 0x1234;
+//	unsigned char b = *(unsigned char*)&a;
+//	printf("%u", b);
+//	return 0;
+//}
+
+//int main()
+//{
+//	char a[1000] = { 0 };
+//	int i = 0;
+//	for (i = 0; i < 1000; i++)
+//	{
+//		a[i] = -1 - i;
+//	}
+//	printf("%d", strlen(a));
+//	return 0;
+//}
+
+int main() {
     int n = 0;
+    int arr[100] = { 0 };
+    scanf("%d\n", &n);
     int i = 0;
-    scanf("%d", &n);
-    int arr[50] = { 0 };
     for (i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
     }
-    for (i = 0; i < n; i++)//ц©лк
+    int x = 0;
+    scanf("%d\n", &x);
+    int count = 0;
+    for (i = 0; i < n; i++)
     {
-        for (int j = i; j < n; j++)//
+        if (arr[i] == x)
         {
-            if (arr[i] < arr[j])
-            {
-                int tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
-            }
+            count++;
         }
     }
-    for (i = 0; i < 5; i++)
-    {
-        printf("%d ", arr[i]);
-    }
+    printf("%d\n", count);
     return 0;
 }
+
