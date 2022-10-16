@@ -347,26 +347,48 @@
 //	return 0;
 //}
 
-int main() {
-    int n = 0;
-    int arr[100] = { 0 };
-    scanf("%d\n", &n);
-    int i = 0;
-    for (i = 0; i < n; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
-    int x = 0;
-    scanf("%d\n", &x);
-    int count = 0;
-    for (i = 0; i < n; i++)
-    {
-        if (arr[i] == x)
-        {
-            count++;
+//int main() {
+//    int n = 0;
+//    int arr[100] = { 0 };
+//    scanf("%d\n", &n);
+//    int i = 0;
+//    for (i = 0; i < n; i++)
+//    {
+//        scanf("%d", &arr[i]);
+//    }
+//    int x = 0;
+//    scanf("%d\n", &x);
+//    int count = 0;
+//    for (i = 0; i < n; i++)
+//    {
+//        if (arr[i] == x)
+//        {
+//            count++;
+//        }
+//    }
+//    printf("%d\n", count);
+//    return 0;
+//}
+
+#include <stdio.h>
+int main()
+{
+    int i, j, n, a[100];
+    int sum = 0;
+    while (scanf("%d", &n) != EOF) {
+        for (i = 2; i <= n; i++) {
+            a[i - 2] = i;
         }
+        for (j = 2; j <= n; j++) {
+            for (i = j - 1; i < n - 1; i++) {
+                if (a[i] % j == 0) a[i] = 0;
+            }
+        }
+        for (i = 0; i < n - 1; i++) {
+            if (a[i] != 0) printf("%d ", a[i]);
+            else sum++;
+        }printf("\n%d", sum);
     }
-    printf("%d\n", count);
     return 0;
 }
 
