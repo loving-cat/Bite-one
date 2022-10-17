@@ -390,5 +390,26 @@ int main()
         }printf("\n%d", sum);
     }
     return 0;
+}#include <stdio.h>
+int main()
+{
+    int i, j, n, a[100];
+    int sum = 0;
+    while (scanf("%d", &n) != EOF) {
+        for (i = 2; i <= n; i++) {
+            a[i - 2] = i;
+        }
+        for (j = 2; j <= n; j++) {
+            for (i = j - 1; i < n - 1; i++) {
+                if (a[i] % j == 0) a[i] = 0;
+            }
+        }
+        for (i = 0; i < n - 1; i++) {
+            if (a[i] != 0) printf("%d ", a[i]);
+            else sum++;
+        }printf("\n%d", sum);
+    }
+    return 0;
 }
+
 
