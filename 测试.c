@@ -370,46 +370,172 @@
 //    return 0;
 //}
 
-#include <stdio.h>
-int main()
+//#include <stdio.h>
+//int main()
+//{
+//    int i, j, n, a[100];
+//    int sum = 0;
+//    while (scanf("%d", &n) != EOF) {
+//        for (i = 2; i <= n; i++) {
+//            a[i - 2] = i;
+//        }
+//        for (j = 2; j <= n; j++) {
+//            for (i = j - 1; i < n - 1; i++) {
+//                if (a[i] % j == 0) a[i] = 0;
+//            }
+//        }
+//        for (i = 0; i < n - 1; i++) {
+//            if (a[i] != 0) printf("%d ", a[i]);
+//            else sum++;
+//        }printf("\n%d", sum);
+//    }
+//    return 0;
+
+
+//#include <stdio.h>
+//int main() {
+//    int a = 0;
+//    int b = 0;
+//    int ret = 0;
+//    while (scanf("%d %d", &a, &b) == 2)
+//    {
+//        ret = a + b;
+//    }
+//    printf("%d\n", ret);
+//    return 0;
+//}
+
+//err 版
+//#include<stdio.h>
+//int main()
+//{
+//    int arr[20]={0};
+//    int n = 0;
+//    int count = 0;
+//    scanf("%d",&n);
+//    int i = 0;
+//    for (i = 0; i < 20; i++)
+//    {
+//        arr[i] = i;
+//        arr[2] = 1;
+//         if (i > 2)
+//         {
+//             arr[i] = arr[i - 1] + arr[i - 2];
+//         }    
+//    }
+//    int sz = sizeof(arr) / sizeof(arr[0]);
+//    for ( i = 0; i <sz ; i++)
+//    {
+//        if (n != (n - 1) + (n - 2))
+//        {
+//            if (n < n - 1 + n - 2)
+//            {
+//                n -= 1;
+//                count++;
+//            }
+//            else if (n > n - 1 + n - 2)
+//            {
+//                n += 1;
+//                count++;
+//            }
+//        }
+//    }
+//    printf("%d\n",count);
+//    return 0;
+//}
+//#include<stdio.h>
+////求绝对值的库函数 abs
+//#include<math.h>
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int f1 = 0;
+//	int f2 = 1;
+//	int f3 = f1 + f2;
+//	while (1)
+//	{
+//		if (n == f2)
+//		{
+//			printf("0\n");
+//			break;
+//		}
+//		if (n < f2)
+//		{
+//			//找出n在f1 f2的最短距离
+//			if (abs(f1 - n) < abs(f2 - n))
+//			{
+//				printf("%d\n", abs(f1 - n));
+//			}
+//			else
+//			{
+//				printf("%d\n", abs(f2 - n));
+//			}
+//			break;
+//		}
+//		f1 = f2;
+//		f2 = f3;
+//		f3 = f1 + f2;
+//	}
+//	return 0;
+//}
+
+
+//#include<stdio.h>
+//void matt(char arr[], int sz)
+//{
+//	int i = 0;
+//	for (i = 0; i < sz ; i++)
+//	{
+//		if (arr[i] == ' ')
+//		{
+//			arr[i] = '%20';
+//		}
+//	}
+//	printf("%s\n", arr);
+//}
+//int main()
+//{
+//	char arr[] = "We Are Happy";
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	matt(arr,sz);
+//	return 0;
+//}
+
+//替换空格 %20
+
+//统计空格耳朵个数
+void replaceSpace(char *str,int length)
 {
-    int i, j, n, a[100];
-    int sum = 0;
-    while (scanf("%d", &n) != EOF) {
-        for (i = 2; i <= n; i++) {
-            a[i - 2] = i;
-        }
-        for (j = 2; j <= n; j++) {
-            for (i = j - 1; i < n - 1; i++) {
-                if (a[i] % j == 0) a[i] = 0;
-            }
-        }
-        for (i = 0; i < n - 1; i++) {
-            if (a[i] != 0) printf("%d ", a[i]);
-            else sum++;
-        }printf("\n%d", sum);
-    }
-    return 0;
-}#include <stdio.h>
-int main()
-{
-    int i, j, n, a[100];
-    int sum = 0;
-    while (scanf("%d", &n) != EOF) {
-        for (i = 2; i <= n; i++) {
-            a[i - 2] = i;
-        }
-        for (j = 2; j <= n; j++) {
-            for (i = j - 1; i < n - 1; i++) {
-                if (a[i] % j == 0) a[i] = 0;
-            }
-        }
-        for (i = 0; i < n - 1; i++) {
-            if (a[i] != 0) printf("%d ", a[i]);
-            else sum++;
-        }printf("\n%d", sum);
-    }
-    return 0;
+	int space_count = 0;
+	char* cur = str;
+	while (*cur)
+	{
+		if (*cur == ' ')
+			space_count++;
+		cur++;
+	}
+	//计算end1,end2
+	char* end1 = str + length - 1;
+	char* end2 = str + length - 1 + 2 * space_count;
+	while (end1 != end2)
+	{
+		if (*end1 == ' ')
+		{
+			*end2-- = *end1--;
+		}
+		else
+		{
+			*end2-- = '0';
+			*end2-- = '2';
+			*end2-- = '%';
+			end1--;
+		}
+	}
 }
 
+int main()
+{
 
+	return 0;
+}
