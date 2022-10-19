@@ -503,39 +503,60 @@
 //}
 
 //替换空格 %20
+//
+////统计空格耳朵个数
+//void replaceSpace(char *str,int length)
+//{
+//	int space_count = 0;
+//	char* cur = str;
+//	while (*cur)
+//	{
+//		if (*cur == ' ')
+//			space_count++;
+//		cur++;
+//	}
+//	//计算end1,end2
+//	char* end1 = str + length - 1;
+//	char* end2 = str + length - 1 + 2 * space_count;
+//	while (end1 != end2)
+//	{
+//		if (*end1 == ' ')
+//		{
+//			*end2-- = *end1--;
+//		}
+//		else
+//		{
+//			*end2-- = '0';
+//			*end2-- = '2';
+//			*end2-- = '%';
+//			end1--;
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//
+//	return 0;
+//}
 
-//统计空格耳朵个数
-void replaceSpace(char *str,int length)
-{
-	int space_count = 0;
-	char* cur = str;
-	while (*cur)
-	{
-		if (*cur == ' ')
-			space_count++;
-		cur++;
-	}
-	//计算end1,end2
-	char* end1 = str + length - 1;
-	char* end2 = str + length - 1 + 2 * space_count;
-	while (end1 != end2)
-	{
-		if (*end1 == ' ')
-		{
-			*end2-- = *end1--;
-		}
-		else
-		{
-			*end2-- = '0';
-			*end2-- = '2';
-			*end2-- = '%';
-			end1--;
-		}
-	}
-}
-
-int main()
-{
-
-	return 0;
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+    int* retnum = (int*)malloc(sizeof(int) * 2);
+    for (int i = 0; i < numsSize; i++)
+    {
+        for (int j = i + 1; j < numsSize; j++)
+        {
+            if (nums[i] + nums[j] == target)
+            {
+                retnum[0] = i;
+                retnum[1] = j;
+                *returnSize = 2;
+                return retnum;
+            }
+        }
+    }
+    *returnSize = 0;
+    free(retnum);
+    retnum = NULL;
+    return  NULL;
 }
