@@ -14,26 +14,44 @@
 //	return 0;
 //}
 
-void swap(int* x, int* y)
-{
-    int tmp = *x;
-    *x = *y;
-    *y = tmp;
-}
+//void swap(int* x, int* y)
+//{
+//    int tmp = *x;
+//    *x = *y;
+//    *y = tmp;
+//}
+//
+//void reverse(int* nums, int left, int right)
+//{
+//    while (left < right) {
+//        swap(&nums[left], &nums[right]);
+//        ++left;
+//        --right;
+//    }
+//}
+//
+//void rotate(int* nums, int numsSize, int k) {
+//
+//    k %= numsSize;
+//    reverse(nums, 0, numsSize - 1);
+//    reverse(nums, 0, k - 1);
+//    reverse(nums, k, numsSize - 1);
+//}
 
-void reverse(int* nums, int left, int right)
-{
-    while (left < right) {
-        swap(&nums[left], &nums[right]);
-        ++left;
-        --right;
+int removeElement(int* nums, int numsSize, int val) {
+    int left = 0;
+    int right = numsSize;
+    while (left < right)
+    {
+        if (nums[left] == val)
+        {
+            nums[left] = nums[right - 1];
+            right--;
+        }
+        else
+        {
+            left++;
+        }
     }
-}
-
-void rotate(int* nums, int numsSize, int k) {
-
-    k %= numsSize;
-    reverse(nums, 0, numsSize - 1);
-    reverse(nums, 0, k - 1);
-    reverse(nums, k, numsSize - 1);
+    return left;
 }
