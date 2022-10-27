@@ -563,34 +563,53 @@
 
 //https://leetcode.cn/problems/merge-sorted-array/
 //合并2个有序数组
-void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
-    int a = 0;
-    int b = 0;
-    int arr[m + n];
-    int cur = 0;
-    while (a != m || b != n)   //a在不等于m 或者 b不等于n 任意一个为真则进入循环
+//void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
+//    int a = 0;
+//    int b = 0;
+//    int arr[m + n];
+//    int cur = 0;
+//    while (a != m || b != n)   //a在不等于m 或者 b不等于n 任意一个为真则进入循环
+//    {
+//        if (a == m)
+//        {
+//            cur = nums2[b++];   //当a等于m时，代表nums1数组元素读取完毕或者没有元素，cur拿取剩下的nums2数组元素
+//        }
+//        else if (b == n)           //同上
+//        {
+//            cur = nums1[a++];
+//        }
+//        else if (nums1[a] < nums2[b])  //当nums1数组的下标为a的元素小于nums2下标为b元素时，cur优先拿走小的nums1
+//        {
+//            cur = nums1[a++];
+//        }
+//        else
+//        {
+//            cur = nums2[b++];   //同上反之
+//        }
+//        arr[a + b - 1] = cur; //防止数组越界 a+b-1, 把上方判断赋值后的cur放入arr数组中
+//    }
+//    for (int i = 0; i != m + n; i++)
+//    {
+//        nums1[i] = arr[i];         //将arrs数组中的元素放入主函数传递的数组中
+//    }
+//}
+
+double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size) {
+    int p1 = 0;
+    int p2 = 0;
+    int ret[2000];
+    int i = 0;
+    while (p1 != 1000 || p2 != 1000)
     {
-        if (a == m)
+        if (nums1[p1] < nums2[p2])
         {
-            cur = nums2[b++];   //当a等于m时，代表nums1数组元素读取完毕或者没有元素，cur拿取剩下的nums2数组元素
-        }
-        else if (b == n)           //同上
-        {
-            cur = nums1[a++];
-        }
-        else if (nums1[a] < nums2[b])  //当nums1数组的下标为a的元素小于nums2下标为b元素时，cur优先拿走小的nums1
-        {
-            cur = nums1[a++];
+            ret[i] = nums1[p1++];
+            i++;
         }
         else
         {
-            cur = nums2[b++];   //同上反之
+            ret[i] = nums2[p2++];
+            i++;
         }
-        arr[a + b - 1] = cur; //防止数组越界 a+b-1, 把上方判断赋值后的cur放入arr数组中
-    }
-    for (int i = 0; i != m + n; i++)
-    {
-        nums1[i] = arr[i];         //将arrs数组中的元素放入主函数传递的数组中
     }
 }
-
