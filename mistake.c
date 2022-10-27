@@ -338,21 +338,70 @@
 //    return ans;
 //}
 
-int findMaxConsecutiveOnes(int* nums, int numsSize) {
-    int ret = 0;    //定义一个返回值
-    int ret_temp = 0;//定义一个返回的暂存值
-    for (int i = 0; i < numsSize; i++)
+//int findMaxConsecutiveOnes(int* nums, int numsSize) {
+//    int ret = 0;    //定义一个返回值
+//    int ret_temp = 0;//定义一个返回的暂存值
+//    for (int i = 0; i < numsSize; i++)
+//    {
+//        if (nums[i] == 1) {      //如果值为1
+//            ret_temp++;         //暂存值的个数加一
+//            if (ret_temp > ret) {
+//                ret = ret_temp; //刷新返回个数
+//            }
+//        }
+//        else {
+//            ret_temp = 0;       //清零
+//        }
+//    }
+//    return ret;
+//}
+//#define r -1
+
+double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size) {
+    int right = nums1Size + nums2Size;
+    double nums[right];//构造数组
+    int s = 0;
+    int i = 0; int j = 0;
+    while (1)//寻找中位数
     {
-        if (nums[i] == 1) {      //如果值为1
-            ret_temp++;         //暂存值的个数加一
-            if (ret_temp > ret) {
-                ret = ret_temp; //刷新返回个数
+        if (i < nums1Size && j < nums2Size)//两个有序数组合并
+        {
+            if (nums1[i] < nums2[j])
+            {
+                nums[s++] = nums1[i];
+                i++;
+            }
+            else
+            {
+                nums[s++] = nums2[j];
+                j++;
             }
         }
-        else {
-            ret_temp = 0;       //清零
+        else if (i < nums1Size)
+        {
+            nums[s++] = nums1[i];
+            i++;
+        }
+        else if (j < nums2Size)
+        {
+            nums[s++] = nums2[j];
+            j++;
+        }
+        //判断是否满足中位数长度
+        if (right % 2)
+        {
+            if (right / 2 + 1 == s)
+            {
+                return nums[s - 1];
+            }
+        }
+        else
+        {
+            if (right / 2 + 1 == s)
+            {
+                return (nums[s - 1] + nums[s - 2]) / 2;
+            }
         }
     }
-    return ret;
+    return 0;
 }
-#define r -1
