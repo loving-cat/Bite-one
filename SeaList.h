@@ -38,3 +38,6 @@ void SLPrint(SL* ps);
 void SLPushBack(SL* ps, SLDataType x);
 void SLPopBack(SL* ps);
 
+void SLPushFront(SL* ps, SLDataType x);
+void SLPopFront(SL* ps);
+

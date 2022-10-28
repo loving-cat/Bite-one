@@ -58,3 +58,11 @@ void SLPopBack(SL* ps)
 	//ps->a[ps->size - 1] = 0;
 	ps->size--;
 }
+
+void SLPushFront(SL* ps, SLDataType x)
+{
+	if (ps->size == ps->capacity)
+	{
+
+	}
+}
