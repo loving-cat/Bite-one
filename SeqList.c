@@ -63,6 +63,7 @@ void SLPushFront(SL* ps, SLDataType x)
 {
 	if (ps->size == ps->capacity)
 	{
+		int newCapacity = ps->capacity == 0 ? 4 : ps->capacity * 2;
 
 	}
 }
