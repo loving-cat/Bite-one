@@ -613,3 +613,16 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
         }
     }
 }
+
+struct ListNode* reverseList(struct ListNode* head) {
+    struct ListNode* cur = head;
+    struct ListNode* rehead = NULL;
+    while (cur)
+    {
+        struct ListNode* next = cur->next;
+        cur->next = rehead;
+        rehead = cur;
+        cur = next;
+    }
+    return rehead;
+}
