@@ -140,6 +140,7 @@ int SLFind(SL* ps, SLDataType x,int begin)
 	{
 		if (ps->a[i] == x)
 		{
+			ps->a
 			return i;
 		}
 	}
