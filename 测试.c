@@ -626,3 +626,19 @@ struct ListNode* reverseList(struct ListNode* head) {
     }
     return rehead;
 }
+
+
+struct ListNode* removeElements(struct ListNode* head, int val) {
+    struct ListNode* reHead = malloc(sizeof(struct ListNode));
+    reHead->next = head;
+    struct ListNode* tmp = reHead;
+    while (tmp->next != NULL) {
+        if (tmp->next->val == val) {
+            tmp->next = tmp->next->next;
+        }
+        else {
+            tmp = tmp->next;
+        }
+    }
+    return reHead->next;
+}
