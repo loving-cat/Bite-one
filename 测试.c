@@ -642,3 +642,9 @@ struct ListNode* removeElements(struct ListNode* head, int val) {
     }
     return reHead->next;
 }
+
+
+while{cur->val != val}
+{
+    if()
+}
