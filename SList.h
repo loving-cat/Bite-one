@@ -2,6 +2,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<assert.h>
 
 typedef int SLTDataType;
 typedef struct SListNode
@@ -10,51 +11,27 @@ typedef struct SListNode
 	struct SListNode* next;
 }SLTNode;
 
-SLTNode* BuySLTNode(SLTDataType x)
-{
-	SLTNode* newnode = (SLTNode*)malloc(sizeof(SLTNode));
-	if (newnode == NULL)
-	{
-		perror("malloc fail");
-		exit(-1);
-	}
-	newnode->data = x;
-	newnode->next = NULL;
+SLTNode* BuySLTNode(SLTDataType x);
+SLTNode* CreateSList(int n);
+void SLTPrint(SLTNode* phead);
+SLTNode* SListFind(SLTNode* phead, SLTDataType x);
 
-	return newnode;
-}
+void SLTPushBack(SLTNode* phead, SLTDataType x);
+void SLTPopBack(SLTNode* phead);
+void SLTPushFront(SLTNode** pphead, SLTDataType x);
+void SLTPopFront(SLTNode** pphead);
 
-SLTNode* CreateSList(int n)
-{
-	SLTNode* phead = NULL, * ptail = NULL;	//节点
-	int x = 0;
-	for (int i = 0; i < n; i++)
-	{
-		//scanf("%d", &x);
-		//SLTNode* newnode = BuySLTNode(x);
-		SLTNode* newnode = BuySLTNode(i+10);
+// 单链表在pos位置之后插入x
+// 分析思考为什么不在pos位置之前插入？
+void SLInsertAfter(SLTNode* pos, SLTDataType x);
+// 单链表删除pos位置之后的值
+// 分析思考为什么不删除pos位置？
+void SLTEraseAfter(SLTNode* pos);
 
-		if (phead == NULL)
-		{
-			ptail = phead = newnode;
-		}
-		else
-		{
-			ptail->next = newnode; //n1->next = n2   n2->next = n3
-			ptail = newnode;		// n1 = n2;		n2 = n3;
-		}
-	}
-	//ptail->next = NULL;
-	return phead;
-}
 
-void SLTPrint(SLTNode* phead)
-{
-	SLTNode* cur = phead;
-	while (cur != NULL)
-	{
-		printf("%d->", cur->data);
-		cur = cur->next;
-	}
-	printf("NULL\n");
-}
+void SLTInsert(SLTNode** pphead, SLTNode* pos, SLTDataType x);
+void SLTErase(SLTNode** pphead, SLTNode* pos, SLTDataType x);
+
+// 单链表的销毁
+void SListDestroy(SLTNode** phead);
+
