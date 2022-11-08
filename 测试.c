@@ -652,14 +652,14 @@ struct ListNode* removeElements(struct ListNode* head, int val) {
  */
 
 
-struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
-    if (list1 == NULL)
-        return list2;
-    if (list2 == NULL)
-        return list1;
-    struct ListNode* head;
-    struct ListNode* tail;
-    head = tail = NULL;
+//struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
+//    if (list1 == NULL)
+//        return list2;
+//    if (list2 == NULL)
+//        return list1;
+//    struct ListNode* head;
+//    struct ListNode* tail;
+//    head = tail = NULL;
 
     //取小的尾插
     while (list1 && list2)
@@ -699,3 +699,50 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
         tail->next = list2;
     return head;
 }
+
+//链表得中间节点
+struct ListNode* middleNode(struct ListNode* head) {
+    struct ListNode* p = head, * q = head;//p快指针，q为慢指针
+    while (p != NULL && p->next != NULL) {
+        p = p->next->next;
+        q = q->next;
+    }
+    return q;
+}
+
+//编写代码，以给定值x为基准将链表分割成两部分，所有小于x的结点排在大于或等于x的结点之前
+/*
+struct ListNode {
+    int val;
+    struct ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};*/
+class Partition {
+public:
+    ListNode* partition(ListNode* pHead, int x) {
+        // write code here
+        ListNode* greaterhead, * greatertail, * lesshead, * lesstail;
+        greaterhead = greatertail = (ListNode*)malloc(sizeof(ListNode));
+        lesstail = lesshead = (ListNode*)malloc(sizeof(ListNode));
+        ListNode* cur = pHead;
+        while (cur)
+        {
+            if (cur->val < x)
+            {
+                lesstail->next = cur;
+                lesstail = lesstail->next;
+            }
+            else
+            {
+                greatertail->next = cur;
+                greatertail = greatertail->next;
+            }
+            cur = cur->next;
+        }
+        greatertail->next = NULL;
+        lesstail->next = greaterhead->next;
+        return lesshead->next;
+
+
+    }
+};
