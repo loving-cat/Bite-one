@@ -1,2 +1,8 @@
 # Bite-one
-C语言学习 2022
+C 
+#include<stdio.h>
+int main()
+{
+  printf("Welcome my friend!");
+  return 0;
+}
