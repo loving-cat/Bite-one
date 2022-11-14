@@ -13,14 +13,17 @@ typedef struct ListNode
 	LTDataType data;
 }LTNode;
 
-void ListInit(LTNode* phead);
+LTNode* ListInit();
 LTNode* BuyListNode(LTDataType x);
+void LTPrint(LTNode* phead);
 
 void LTPushBack(LTNode* phead, LTDataType x);
 void LTPopBack(LTNode* phead);
 
 void LTPushFront(LTNode* phead, LTDataType x);
 void LTPopFront(LTNode* phead);
+
+LTNode* ListFind(LTNode* pHead, LTDataType x);
 
 //在pos之前插入x
 void LTInsert(LTNode* pos, LTDataType x);

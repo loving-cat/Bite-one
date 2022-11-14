@@ -14,14 +14,26 @@ LTNode* BuyListNode(LTDataType x)
 	node->prev = NULL;
 	return node;
 }
-void ListInit(LTNode* phead)
+//构造一个空的双向链表
+LTNode* ListInit()
 {
-	LTNode* phead = BuyListNode(-1);
+	LTNode* phead = BuyListNode(0);//调用上面的BuyListNode（）函数创建数据域为0的头指针指向头节点
 	phead->next = phead;
 	phead->prev = phead;
 	return phead;
 }
 
+void LTPrint(LTNode* phead)
+{
+	assert(phead);
+	LTNode* cur = phead->next;
+	while (cur != phead)
+	{
+		printf("%d ", cur->data);
+		cur = cur->next;
+	}
+	printf("\n");
+}
 void LTPushBack(LTNode* phead, LTDataType x)
 {
 	assert(phead);
@@ -40,12 +52,12 @@ void LTPopBack(LTNode* phead)
 {
 	assert(phead);
 	assert(phead->next != phead);//不为空
-	/*LTNode* tail = phead->next;
+	LTNode* tail = phead->prev;
 	LTNode* tailPrev = tail->prev;
 	tailPrev->next = phead;
 	phead->prev = tailPrev;
-	free(tail);*/
-	LTErase(phead->prev);
+	free(tail);
+	//LTErase(phead->prev);
 }
 
 void LTPushFront(LTNode* phead, LTDataType x)
@@ -83,6 +95,20 @@ void LTPopFront(LTNode* phead)
 	LTErase(phead->prev);
 }
 
+LTNode* ListFind(LTNode* phead, LTDataType x)
+{
+	assert(phead);
+	LTNode* cur = phead->next;
+	while (cur != phead)
+	{
+		if (cur->data == x)
+		{
+			return cur;
+		}
+		cur = cur->next;
+	}
+	return NULL;
+}
 //在pos之前插入x
 void LTInsert(LTNode* pos, LTDataType x)
 {
