@@ -746,3 +746,88 @@ public:
 
     }
 };
+//复制带随机指针的链表
+struct Node* copyRandomList(struct Node* head) {
+    struct Node* cur = head;
+    while (cur)
+    {
+        struct Node* next = cur->next;
+        struct Node* copy = (struct Node*)malloc(sizeof(struct Node));
+        copy->val = cur->val;
+
+        //插入链接
+        cur->next = copy;
+        copy->next = next;
+
+        cur = next;
+    }
+
+    //2.置random
+    cur = head;
+    while (cur)
+    {
+        struct Node* copy = cur->next;
+
+        if (cur->random == NULL)
+        {
+            copy->random = NULL;
+        }
+        else
+        {
+            copy->random = cur->random->next;
+        }
+        cur = cur->next->next;
+    }
+
+    //脱开链接
+    cur = head;
+    struct Node* copyHead = NULL, * copyTail = NULL;
+    while (cur)
+    {
+        struct Node* copy = cur->next;
+        struct Node* next = copy->next;
+
+        cur->next = next;
+
+        //尾插
+        if (copyTail == NULL)
+        {
+            copyHead = copyTail = copy;
+        }
+        else
+        {
+            copyTail->next = copy;
+            copyTail = copyTail->next;
+        }
+        cur = next;
+    }
+    return copyHead;
+}
+
+void AdjustDown(HPDataType* a, int n, int parent)
+{
+    int child = parent * 2 - 1;
+    while (child < n) //小于n 右孩子存在  大于n 超出数组
+    {
+        //确认child指向大的哪个孩子
+        if (a[child + 1] > a[child])
+        {
+            child++;
+        }
+
+        //1，孩子大于父亲，交换，继续向下调整
+        //2,孩子小于父亲，则调整结束
+        if (a[child] > a[parent])
+        {
+            Swap(&a[child], &a[parent]);
+            parent = child;
+            child = parent * 2 + 1;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+
+}
