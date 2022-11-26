@@ -38,3 +38,11 @@ bool isSubtree(struct TreeNode* root, struct TreeNode* subRoot)
 	return isSubtree(root->left, subRoot)
 		|| isSubtree(root->right, subRoot);
 }
+
+//104
+
+int maxDepth(struct TreeNode* root) {
+	if (root == NULL) return 0;
+	return fmax(maxDepth(root->left), maxDepth(root->right)) + 1;
+}
+
