@@ -14,23 +14,16 @@ BTNode* CreateBTNode(BTDataType x)
 	return node;
 }
 // 二叉树销毁
-void BinaryTreeDestory(BTNode** root)
+void BinaryTreeDestory(BTNode* root)
 {
 	if (root == NULL)
 	{
 		//非法
 		return;
 	}
-	if (*root == NULL)
-	{
-		//空树
-		return;
-	}
 	BinaryTreeDestory((*root)->left);
 	BinaryTreeDestory((*root)->right);
-	free((*root)->_data);
-	*root = NULL;
-	return;
+	free(root);
 
 }
 int size = 0;
