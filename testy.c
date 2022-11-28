@@ -46,3 +46,18 @@ int maxDepth(struct TreeNode* root) {
 	return fmax(maxDepth(root->left), maxDepth(root->right)) + 1;
 }
 
+//二叉树的前序遍历
+void hide(struct TreeNode* root, int* ret, int* returnSize)
+{
+	if (root == NULL)
+		return;
+	ret[(*returnSize)++] = root->val;
+	hide(root->left, ret, returnSize);
+	hide(root->right, ret, returnSize);
+}
+int* preorderTraversal(struct TreeNode* root, int* returnSize) {
+	int* ret = (int*)malloc(sizeof(int) * 2000);
+	*returnSize = 0;
+	hide(root, ret, returnSize);
+	return ret;
+}
