@@ -61,3 +61,28 @@ int* preorderTraversal(struct TreeNode* root, int* returnSize) {
 	hide(root, ret, returnSize);
 	return ret;
 }
+
+//翻转二叉树，//226
+struct TreeNode* invertTree(struct TreeNode* root) {
+	if (root == NULL)
+		return NULL;
+
+	struct TreeNode* left = invertTree(root->left);
+	struct TreeNode* right = invertTree(root->right);
+
+	root->left = right;
+	root->right = left;
+
+	return root;
+}
+
+//101. 对称二叉树
+bool isSymmetric(struct TreeNode* root) {
+
+}
+//572. 另一棵树的子树
+bool isSubtree(struct TreeNode* root, struct TreeNode* subRoot) {
+
+}
+//KY11 二叉树遍历
+
