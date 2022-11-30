@@ -77,8 +77,27 @@ struct TreeNode* invertTree(struct TreeNode* root) {
 }
 
 //101. 对称二叉树
-bool isSymmetric(struct TreeNode* root) {
+bool check(struct TreeNode* left, struct TreeNode* right)
+{
+	if (left == NULL && right == NULL)
+	{
+		return true;
+	}
+	else if (left == NULL || right == NULL)
+	{
+		return false;
+	}
+	else if (left->val != right->val)
+	{
+		return false;
+	}
+	return check(left->left, right->right) && check(left->right, right->left);
+}
 
+bool isSymmetric(struct TreeNode* root) {
+	if (root == NULL)
+		return true;
+	return check(root->right, root->left);
 }
 //572. 另一棵树的子树
 bool isSubtree(struct TreeNode* root, struct TreeNode* subRoot) {
