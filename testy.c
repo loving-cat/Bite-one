@@ -100,8 +100,21 @@ bool isSymmetric(struct TreeNode* root) {
 	return check(root->right, root->left);
 }
 //572. 另一棵树的子树
-bool isSubtree(struct TreeNode* root, struct TreeNode* subRoot) {
+bool compare(struct TreeNode* p1, struct TreeNode* p2)
+{
+	if (!p1 && !p2)
+		return true;
+	if (!p1 || !p2)
+		return false;
+	if (p1->val != p2->val)
+		return false;
 
+	return compare(p1->left, p2->left) && compare(p1->right, p2->right);
+}
+bool isSubtree(struct TreeNode* s, struct TreeNode* t) {
+	if (!s)
+		return false;
+	return compare(s, t) || isSubtree(s->left, t) || isSubtree(s->right, t);
 }
 //KY11 二叉树遍历
 
