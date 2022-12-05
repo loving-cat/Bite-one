@@ -3,6 +3,90 @@
 #include<string.h>
 #include<stdlib.h>
 #include<time.h>
+
+//void InsertSort(int* a, int n)
+//{
+//	for (int i = 0; i < n-1; i++)
+//	{
+//		int end;
+//		int tmp = a[end + 1];
+//		while (end >= 0)
+//		{
+//			if (tmp < a[end])
+//			{
+//				a[end + 1] = a[end];
+//				end--;
+//			}
+//			else
+//			{
+//				break;
+//			}
+//		}
+//		a[end + 1] = tmp;
+//	}
+//}
+
+
+//void InsertSort(int* a, int n)
+//{
+//	
+//	for (int i = 0; i < n-1; i++)
+//	{
+//		int k = i;
+//		int tmp = a[k + 1];
+//		while (k >= 0) 
+//		{
+//			if (tmp < a[k])
+//			{
+//				a[k + 1] = a[k];
+//				k--;
+//
+//			}
+//			else
+//			{
+//				break;
+//			}
+//		}
+//		a[k + 1] = tmp;
+//	}
+//}
+
+
+void Insert(int* a, int n)
+{
+	for (int i = 0; i < n - 1; i++)
+	{
+		int k = i;
+		int tmp = a[k + 1];
+		while (k>=0)
+		{
+			if (tmp < a[k])
+			{
+				a[k + 1] = a[k];
+				k--;
+			}
+			else
+			{
+				break;
+			}
+		}
+		a[k + 1] = tmp;
+	}
+}
+
+int main()
+{
+	int a[8] = { 1,2,1,3,4,2,1,2 };
+	Insert(a, 8);
+	for (int m = 0; m < 8; m++)
+	{
+		printf("%d", a[m]);
+	}
+	return 0;
+}
+
+
+
 //int gap = 3;
 //for (int j = 0; j < gap; j++)
 //{
