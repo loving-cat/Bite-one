@@ -3,7 +3,6 @@
 #include<string.h>
 #include<stdlib.h>
 #include<time.h>
-
 //void InsertSort(int* a, int n)
 //{
 //	for (int i = 0; i < n-1; i++)
@@ -74,10 +73,33 @@ void Insert(int* a, int n)
 	}
 }
 
+void InsertSort(int* a, int n)
+{
+	for (int i = 0; i < n - 1; ++i)
+	{
+		int k = i;
+		int tmp = a[k + 1];
+		while (k>0)
+		{
+			if (tmp < a[k]) 
+			{
+				a[k + 1] = a[k];
+				--k;
+			}
+			else
+			{
+				break;
+			}
+		}
+		a[k + 1] = tmp;
+	}
+}
+
+void Insert2(int* a, int n);
 int main()
 {
 	int a[8] = { 1,2,1,3,4,2,1,2 };
-	Insert(a, 8);
+	Insert2(a, 8);
 	for (int m = 0; m < 8; m++)
 	{
 		printf("%d", a[m]);
