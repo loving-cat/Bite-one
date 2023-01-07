@@ -3,27 +3,35 @@
 #include<string.h>
 #include<stdlib.h>
 #include<time.h>
-//void InsertSort(int* a, int n)
-//{
-//	for (int i = 0; i < n-1; i++)
-//	{
-//		int end;
-//		int tmp = a[end + 1];
-//		while (end >= 0)
-//		{
-//			if (tmp < a[end])
-//			{
-//				a[end + 1] = a[end];
-//				end--;
-//			}
-//			else
-//			{
-//				break;
-//			}
-//		}
-//		a[end + 1] = tmp;
-//	}
-//}
+
+void Swap(int* x, int* y)
+{
+	int tmp = 0;
+	tmp = *x;
+	*x = *y;
+	*y = tmp;
+}
+void InsertSort(int* a, int n)
+{
+	for (int i = 0; i < n-1; i++)
+	{
+		int end;
+		int tmp = a[end + 1];
+		while (end >= 0)
+		{
+			if (tmp < a[end])
+			{
+				a[end + 1] = a[end];
+				end--;
+			}
+			else
+			{
+				break;
+			}
+		}
+		a[end + 1] = tmp;
+	}
+}
 
 
 //void InsertSort(int* a, int n)
